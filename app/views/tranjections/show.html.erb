@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tranjectiontype:</strong>
+  <%= @tranjection.tranjectiontype %>
+</p>
+
+<p>
+  <strong>Uses:</strong>
+  <%= @tranjection.uses %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @tranjection.amount %>
+</p>
+
+<%= link_to 'Edit', edit_tranjection_path(@tranjection) %> |
+<%= link_to 'Back', tranjections_path %>
