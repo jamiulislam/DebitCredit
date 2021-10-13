@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
+  before_action :correct_user, only: %i[ create edit update destroy ]
   # GET /companies or /companies.json
   def index
     @companies = Company.all
@@ -61,6 +62,11 @@ class CompaniesController < ApplicationController
       format.html { redirect_to companies_url, notice: "Company was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+  private
+  def correct_user
+    #current_user.id == 3
+    redirect_to companies_path, notice: "not authorized." if current_user.id != 3
   end
 
   private
